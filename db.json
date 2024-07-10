@@ -81,14 +81,6 @@
       "occupation": "test"
     },
     {
-      "id": "e348",
-      "name": "123",
-      "email": "dev@gmail.com",
-      "age": "20",
-      "city": "123",
-      "occupation": "dev"
-    },
-    {
       "id": "fdea",
       "name": "1",
       "email": "50@gmail.com",
@@ -111,14 +103,6 @@
       "age": "22",
       "city": "111",
       "occupation": "wq"
-    },
-    {
-      "id": "e842",
-      "name": "123",
-      "email": "sad@gmailc.com",
-      "age": "20",
-      "city": "213",
-      "occupation": "wqe"
     },
     {
       "id": "d4ca",

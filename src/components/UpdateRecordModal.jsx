@@ -66,7 +66,6 @@ const UpdateRecordModal = ({
         maxWidth={"md"}
         scroll="paper"
         fullWidth={true}
-        // fullScreen={fullScreen}
       >
         <DialogTitle
           sx={{

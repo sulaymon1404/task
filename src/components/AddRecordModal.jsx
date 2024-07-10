@@ -77,7 +77,6 @@ const AddRecordModal = ({
           id="responsive-dialog-title"
         >
           <Typography
-            // variant="h2"
             color={"#262626"}
             fontWeight={"600"}
             fontSize={"18px"}

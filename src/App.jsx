@@ -68,127 +68,126 @@ const App = () => {
 
   return (
     <>
-    <Container>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "end",
-          alignItems: "center",
-          py: "20px",
-        }}
-      >
-        <Button
-          startIcon={<AddCircle />}
-          variant="contained"
-          color="primary"
-          onClick={() => setAddModal(true)}
-        >
-          Add Record
-        </Button>
-      </Box>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>№</StyledTableCell>
-              <StyledTableCell align="right">Name</StyledTableCell>
-              <StyledTableCell align="right">Email</StyledTableCell>
-              <StyledTableCell align="right">Age</StyledTableCell>
-              <StyledTableCell align="right">City</StyledTableCell>
-              <StyledTableCell align="right">Occupation</StyledTableCell>
-              <StyledTableCell align="right">Action</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {records.map((record, index) => (
-              <StyledTableRow
-                key={record.id}
-                ref={index === records.length - 1 ? ref : null}
-              >
-                <StyledTableCell component="th" scope="row">
-                  {index + 1}
-                </StyledTableCell>
-                <StyledTableCell component="th" scope="row">
-                  {record.name}
-                </StyledTableCell>
-                <StyledTableCell align="right">{record.email}</StyledTableCell>
-                <StyledTableCell align="right">{record.age}</StyledTableCell>
-                <StyledTableCell align="right">{record.city}</StyledTableCell>
-                <StyledTableCell align="right">
-                  {record.occupation}
-                </StyledTableCell>
-                <StyledTableCell align="right">
-                  <IconButton
-                    color="primary"
-                    size="small"
-                    onClick={() => {
-                      setRecord(record);
-                      setUpdateModal(true);
-                    }}
-                  >
-                    <Edit />
-                  </IconButton>
-                  <IconButton
-                    color="error"
-                    size="small"
-                    onClick={() => {
-                      setRecord(record);
-                      setDeleteModal(true);
-                    }}
-                  >
-                    <Delete />
-                  </IconButton>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      {records.length === 0 && !hasMore && !loading ? <div>empty</div> : null}
-      {hasMore && loading ? (
+      <Container>
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "end",
             alignItems: "center",
-            padding: "12px",
+            py: "20px",
           }}
         >
-          <CircularProgress />
+          <Button
+            startIcon={<AddCircle />}
+            variant="contained"
+            color="primary"
+            onClick={() => setAddModal(true)}
+          >
+            Add Record
+          </Button>
         </Box>
-      ) : null}
-      <AddRecordModal
-        showModal={addModal}
-        setShowModal={setAddModal}
-        setHasMore={setHasMore}
-        setPage={setPage}
-        page={page}
-        fetchRecords={fetchRecords}
-      />
-      <DeleteRecordModal
-        showModal={deleteModal}
-        setShowModal={setDeleteModal}
-        setHasMore={setHasMore}
-        setPage={setPage}
-        page={page}
-        fetchRecords={fetchRecords}
-        record={record}
-      />
-      <UpdateRecordModal
-        record={record}
-        showModal={updateModal}
-        setShowModal={setUpdateModal}
-        setHasMore={setHasMore}
-        setPage={setPage}
-        page={page}
-        fetchRecords={fetchRecords}
-      />
-    </Container>
-    <Toaster
-    // position="top-center"
-    // reverseOrder={false}
-  />
-  </>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>№</StyledTableCell>
+                <StyledTableCell align="right">Name</StyledTableCell>
+                <StyledTableCell align="right">Email</StyledTableCell>
+                <StyledTableCell align="right">Age</StyledTableCell>
+                <StyledTableCell align="right">City</StyledTableCell>
+                <StyledTableCell align="right">Occupation</StyledTableCell>
+                <StyledTableCell align="right">Action</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {records.map((record, index) => (
+                <StyledTableRow
+                  key={record.id}
+                  ref={index === records.length - 1 ? ref : null}
+                >
+                  <StyledTableCell component="th" scope="row">
+                    {index + 1}
+                  </StyledTableCell>
+                  <StyledTableCell component="th" scope="row">
+                    {record.name}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    {record.email}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{record.age}</StyledTableCell>
+                  <StyledTableCell align="right">{record.city}</StyledTableCell>
+                  <StyledTableCell align="right">
+                    {record.occupation}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    <IconButton
+                      color="primary"
+                      size="small"
+                      onClick={() => {
+                        setRecord(record);
+                        setUpdateModal(true);
+                      }}
+                    >
+                      <Edit />
+                    </IconButton>
+                    <IconButton
+                      color="error"
+                      size="small"
+                      onClick={() => {
+                        setRecord(record);
+                        setDeleteModal(true);
+                      }}
+                    >
+                      <Delete />
+                    </IconButton>
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        {records.length === 0 && !hasMore && !loading ? <div>empty</div> : null}
+        {hasMore && loading ? (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "12px",
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        ) : null}
+        <AddRecordModal
+          showModal={addModal}
+          setShowModal={setAddModal}
+          setHasMore={setHasMore}
+          setPage={setPage}
+          page={page}
+          fetchRecords={fetchRecords}
+        />
+        <DeleteRecordModal
+          showModal={deleteModal}
+          setShowModal={setDeleteModal}
+          setHasMore={setHasMore}
+          setPage={setPage}
+          page={page}
+          fetchRecords={fetchRecords}
+          record={record}
+        />
+        <UpdateRecordModal
+          record={record}
+          showModal={updateModal}
+          setShowModal={setUpdateModal}
+          setHasMore={setHasMore}
+          setPage={setPage}
+          page={page}
+          fetchRecords={fetchRecords}
+        />
+      </Container>
+      <Toaster />
+    </>
   );
 };
 
