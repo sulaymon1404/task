@@ -83,7 +83,7 @@ const UpdateRecordModal = ({
             fontSize={"18px"}
             lineHeight={"24px"}
           >
-            Add Record
+            Update Record
           </Typography>
           <IconButton size="small" onClick={closeModal}>
             <Close fontSize="24px" />
